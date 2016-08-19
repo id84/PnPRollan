@@ -7,5 +7,6 @@ Latest:
 https://cdn.rawgit.com/istemidulger/PnPRollan/master/PnPRollan.html
 
 TODO:
-#Seperate Item Tables to CSV
-#Dump everything into html.
+-Seperate Item Tables to CSV
+-Dump everything into html
+-CSS magic to fit into phone screens
