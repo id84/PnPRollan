@@ -737,23 +737,15 @@ var lamemelee = ["Shiv - Rusted",
 "Pole - Wooden",
 "Pole - Metal",
 "Shiv - Broken Edge"];
-var lameexplosives = ["Firecrackers - Wet",
-"Firecrackers",
+var lameexplosives = ["Firecrackers",
 "Box Of Firecrackers",
-"Fireworks - Wet",
+"Fireworks",
 "Fireworks Bundle",
-"Molotov Cocktail - Missing fuse",
 "Molotov Cocktail - Half Empty",
-"Molotov Cocktail - Dried Up",
-"Dynamite Stick - Wet",
+"Molotov Cocktail - Dried",
 "Dynamite Stick",
-"Dynamite Bundle - Corroded",
-"Plasma Grenade - Bad Fuse",
-"Emp Grenade - Missing Core",
 "Homemade Fertilizer Grenade",
-"Homemade Fertilizer - Satchel",
-"Landmine - Bad Fuse",
-"Landmine - Rusted Trigger"];
+"Homemade Fertilizer - Satchel"];
 
 
 
@@ -780,9 +772,26 @@ var firearmcondition = ["Jammed - Rusted",
 "Mint Condition",
 "Mint Condition - All Accessories",
 "Mint Condition - Still in its case"];
+
+var explosiveconditions = ["Bad Fuse",
+"Corroded",
+"Wet",
+"Missing - Half",
+"Missing - Broken Casing",
+"Single",
+"Ready to go",
+"Mint",
+"In Military Case",
+"Armed",
+"Ingredients - Missing Fuse",
+"Ingredients - Including Recipe",
+"Ingredients - Just Chemical Jars",
+"Ingredients - Missing Casing",
+"Military Crate"];
+
 /* "M-160 - 7.62";
 Colt 6520 pistol */
-function clear() {
+function clearelements() {
 	document.getElementById("G1").innerHTML = "";
 	document.getElementById("G2").innerHTML = "";
 	document.getElementById("G3").innerHTML = "";
@@ -809,11 +818,23 @@ function trashloot(num) {
 		}
 	document.getElementById("G1").innerHTML = s + "</ul>";	
 	}
+	
+function printresult(s1, el1, s2, el2) {	
+	
+		clearelements();
+		document.getElementById(el1).innerHTML = "<ol type=\"1\">" + s1 + "</ol>";	
+		document.getElementById(el2).innerHTML = "<ol type=\"1\">" + s2 + "</ol>";	
+}
 
-function lameweapons(type, num){
-	clear()
-	var s = "<ol type=\"1\">";
-	var s2 = "<ol type=\"1\">";
+function generatefromtype (type, num) {
+	var a = megamixer(type, num);
+	printresult(a[0], "G2", a[1], "G3");
+}
+
+function megamixer(type, num){
+
+	var s = "";
+	var s2 = "";
 	if (type == -1){
 		var r = Math.round(Math.random()*5);
 	}
@@ -821,12 +842,11 @@ function lameweapons(type, num){
 		var r = type;
 	}
 	
+		var n = num;
 	if (num == -1){
 		var n = 6;
 	}
-	else {
-		var n = 6;
-	}
+
 	
 	for (i = 0; i < n; i++) {
 		switch(r) {
@@ -863,7 +883,8 @@ function lameweapons(type, num){
 		}
 
 	}
-		document.getElementById("G2").innerHTML = s + "</ul>";	
-		document.getElementById("G3").innerHTML = s2 + "</ul>";	
+		var res = [s , s2];
+		return res;
 }
+
 
