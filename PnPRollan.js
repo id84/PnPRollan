@@ -810,69 +810,60 @@ function trashloot(num) {
 	document.getElementById("G1").innerHTML = s + "</ul>";	
 	}
 
-function lameweapons(num){
+function lameweapons(type, num){
 	clear()
 	var s = "<ol type=\"1\">";
 	var s2 = "<ol type=\"1\">";
-	if (num == -1){
+	if (type == -1){
 		var r = Math.round(Math.random()*5);
 	}
 	else {
-		var r = num;
+		var r = type;
 	}
-	document.getElementById("G1").innerHTML = r;
+	
+	if (num == -1){
+		var n = 6;
+	}
+	else {
+		var n = 6;
+	}
+	
+	for (i = 0; i < n; i++) {
 		switch(r) {
 			case (r = 0):
 				/* this case is for handmade */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*4);
-					s += "<li>" + handmade[r2] + "</li>";
-				}
+				s += "<li>" + handmade[Math.floor(Math.random()*(handmade.length - 1) + 1)] + "</li>";
+				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
 			break;
 			case (r = 1):
 				/* this case is for lamepistols */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*13);
-					s += "<li>" + lamepistols[r2] + "</li>";
-				}
+				s += "<li>" + lamepistols[Math.floor(Math.random()*(lamepistols.length - 1) + 1)] + "</li>";
+				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
 			break;
 			case (r = 2):
-			
 				/* this case is for lamesmgs */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*7);
-					s += "<li>" + lamesmgs[r2] + "</li>";
-				}
+				s += "<li>" + lamesmgs[Math.floor(Math.random()*(lamesmgs.length - 1) + 1)] + "</li>";
+				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
 			break;
 			case (r = 3):
 				/* this case is for lamerifle */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*5);
-					s += "<li>" + lamerifle[r2] + "</li>";
-				}
+				s += "<li>" + lamerifle[Math.floor(Math.random()*(lamerifle.length - 1) + 1)] + "</li>";
+				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
 			break;
 			case (r = 4):
 				/* this case is for lamemelee */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*11);
-					s += "<li>" + lamemelee[r2] + "</li>";
-				}
+				s += "<li>" + lamemelee[Math.floor(Math.random()*(lamemelee.length - 1) + 1)] + "</li>";
+				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
 				break;
 			case (r = 5):
 				/* this case is for lameexplosives */
-				for (i = 0; i < 6; i++) {
-					var r2 = Math.round(Math.random()*16);
-					s += "<li>" + lameexplosives[r2] + "</li>";
-				}
+				s += "<li>" + lameexplosives[Math.floor(Math.random()*(lameexplosives.length -1) +1)] + "</li>";
+				s2 += "<li>" + explosiveconditions[Math.floor(Math.random()*(explosiveconditions.length - 1) + 1)] + "</li>";
 				break;
 		}
+
+	}
 		document.getElementById("G2").innerHTML = s + "</ul>";	
-		if(r < 4) {
-			for (i = 0; i < 6; i++) {
-				var r2 = Math.round(Math.random()*21);
-				s2 += "<li>" + firearmcondition[r2] + "</li>";
-			}
-		}
 		document.getElementById("G3").innerHTML = s2 + "</ul>";	
 }
 
