@@ -804,7 +804,6 @@ function rollD6() {
 	}
 
 function trashloot(num) {
-	clear();
 	if (num == -1) {
 			var aa = document.getElementById('value').value;
 		}
@@ -813,10 +812,10 @@ function trashloot(num) {
 		}
 	var s =  "<ul style=\"list-style-type:circle\">";
 	for (i = 0; i < aa; i++) {
-		var r = Math.round(Math.random()*689);
+		var r = Math.floor(Math.random()*689);
 		s += "<li>" + trashlist[r] + "</li>"
 		}
-	document.getElementById("G1").innerHTML = s + "</ul>";	
+	printresult(s, "G2", 0,0);
 	}
 	
 function printresult(s1, el1, s2, el2) {	
@@ -836,7 +835,7 @@ function megamixer(type, num){
 	var s = "";
 	var s2 = "";
 	if (type == -1){
-		var r = Math.round(Math.random()*5);
+		var r = Math.floor(Math.random()*5);
 	}
 	else {
 		var r = type;
