@@ -15,12 +15,12 @@ function rollDice() {
 	var a = curDieSet;
 	if(a == 6 || a == 20 || a == 100){
 		var s = Math.floor(Math.random()*curDieSet);
-		document.getElementById("dieResult").innerHTML = s+1;
+		document.getElementById("dieResult").innerHTML = (s + 1);
 		}
 	else if (a == 40 || a == 12 || a == 200){
 		var s1 = Math.floor(Math.random()*curDieSet / 2);
 		var s2 = Math.floor(Math.random()*curDieSet / 2);
-		document.getElementById("dieResult").innerHTML = s1+1 + " & " + s2+1;
+		document.getElementById("dieResult").innerHTML = (s1 + 1) + " & " + (s2 + 1);
 		}
 	}
 
