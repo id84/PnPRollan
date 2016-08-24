@@ -1,6 +1,6 @@
 # PnPRollan
 Simple JScript to pick items from lists/item tables to assist PnP games.
-Current list based on tables written by LDMCFEAR for RIFTS, discovered through Geocities archelogical work (http://www.oocities.org/the_new_robotech/rit.html).
+Current lists based on tables written by LDMCFEAR for RIFTS, discovered through Geocities archelogical work (http://www.oocities.org/the_new_robotech/rit.html)&//450 Random Junk Items for Post Apocalypse (https://www.reddit.com/r/rpg/comments/2yy3in/450_random_junk_items_for_post_apocalypse/) by The_New_Doctor as well as items from Fallout games.
 
 
 TODO:  
