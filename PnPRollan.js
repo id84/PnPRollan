@@ -1,14 +1,14 @@
-
-/* "M-160 - 7.62";
-Colt 6520 pistol */
 var curDieSet = 6;
 
+function init(){
+	document.getElementById('dice').value = 6;
+}
+
 function clearelements() {
-	document.getElementById("G1").innerHTML = "";
-	document.getElementById("G2").innerHTML = "";
-	document.getElementById("G3").innerHTML = "";
-	document.getElementById("G4").innerHTML = "";
-	document.getElementById("G5").innerHTML = "";
+	document.getElementById("Loot").innerHTML = "";
+	document.getElementById("Weapon").innerHTML = "";
+	document.getElementById("Condition").innerHTML = "";
+	document.getElementById("Condition2").innerHTML = "";
 }
 
 function rollDice() {
@@ -24,6 +24,11 @@ function rollDice() {
 		}
 	}
 
+function setdieset(dieSet){
+ 	curDieSet = dieSet;
+	
+}
+	
 function trashloot(num) {
 	if (num == -1) {
 			var aa = document.getElementById('value').value;
@@ -36,96 +41,88 @@ function trashloot(num) {
 		var r = Math.floor(Math.random()*689);
 		s += "<li>" + trashlist[r] + "</li>"
 		}
-	printresult(s, "G1", 0,0, true);
+	printresult(s, "Loot", 0,0, true);
 	}
 	
 function printresult(s1, el1, s2, el2, clear) {	
-		if (clear) {
-			clearelements();
-		}
-		var tableStart = "<table style=\"width:100%\"><tr><th></th><th></th></tr>";
-		if (s2 != 0){
+	if (clear) {
+		clearelements();
+	}
+	var tableStart = "<table style=\"width:100%\">";
+	if (s2 != 0){
 		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td>" + "<td><ol type=\"1\">" + s2 + "</ol></td></tr></table>";
-		}
-		else{
+	}
+	else{
 		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td></tr></table>";
-		}
-		//var table2nd = "<tr><td><ol type=\"1\">" + s3 + "</ol></td>" + "<td><ol type=\"1\">" + s4 + "</ol></td></tr></table>";
-		
-		document.getElementById(el1).innerHTML = tableStart + table1st;
-		//document.getElementById(el2).innerHTML = tableStart + table2nd;
-}
-
-function generatefromtype (type, num) {
-	var a = megamixer(type, num);
-	if(type < 6){
-		printresult(a[0], "G2", a[1], "G3", true);
 	}
-	else {
-		printresult(a[0], "G4", a[1], "G5", true);
-	}
-}
-
-function setdieset(dieSet){
- 	curDieSet = dieSet;
-}
-function megamixer(type, num){
-
-	var s = "";
-	var s2 = "";
+	//var table2nd = "<tr><td><ol type=\"1\">" + s3 + "</ol></td>" + "<td><ol type=\"1\">" + s4 + "</ol></td></tr></table>";
 	
-	if (type == -1){
-		var r = Math.floor(Math.random()*6);
-	}
-	else {
-		var r = type;
-	}
+	document.getElementById(el1).innerHTML = tableStart + table1st;
+	//document.getElementById(el2).innerHTML = tableStart + table2nd;
+}
+
+function generatefromtype (type, condition) {
+	rollDice();
+	var a = generatewithcondition(type, condition, false);
+	printresult(a[0], "Weapon", a[1], "Condition", true);
+}
+function generateloot (type, num) {
+	rollDice();
+	var a = generatewithoutcondition(type, num, true);
+	printresult(a[0], "Loot", 0,0, true);
+}
+function generatechem (type, condition) {
+	rollDice();
+	var a = generatewithcondition(type, condition, false);
+	printresult(a[0], "Loot", a[1], "Condition2", true);
+}
+
+function generatewithoutcondition(type, num, forcenum) {
+	
+	var s = "error";
+	var s2 = "error";
 	
 	var n = curDieSet;
+	if(forcenum){
+		n = num;
+	}
+	
 	if(n == 40 || n == 12) {
 		var n = curDieSet / 2;
+	}
+	
+	//trashlist handmade falloutPistols falloutSMGs falloutRifles falloutMelee falloutExplosives falloutBigguns falloutMedicine falloutDrugs falloutAlcohol smallhousehold "largehousehold" : mediumhousehold	
+
+	for (i = 0; i < n; i++) {
+		s += "<li>" + type[Math.floor(Math.random()*(type.length - 1) + 1)] + "</li>";
 		}
+		
+		s = s.slice(5);
+		var res = [s];
+		return res;
+}
+
+function generatewithcondition(type, condition, forcenum){
+
+	var s = "error";
+	var s2 = "error";
+	
+	var n = curDieSet;
+	if(forcenum){
+		n = condition;
+	}
+	
+	if(n == 40 || n == 12) {
+		var n = curDieSet / 2;
+	}
 	
 	for (i = 0; i < n; i++) {
-		switch(r) {
-			case (r = 0):
-				/* this case is for handmade */
-				s += "<li>" + handmade[Math.floor(Math.random()*(handmade.length - 1) + 1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-			break;
-			case (r = 1):
-				/* this case is for lamepistols */
-				s += "<li>" + lamepistols[Math.floor(Math.random()*(lamepistols.length - 1) + 1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-			break;
-			case (r = 2):
-				/* this case is for lamesmgs */
-				s += "<li>" + lamesmgs[Math.floor(Math.random()*(lamesmgs.length - 1) + 1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-			break;
-			case (r = 3):
-				/* this case is for lamerifle */
-				s += "<li>" + lamerifle[Math.floor(Math.random()*(lamerifle.length - 1) + 1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-			break;
-			case (r = 4):
-				/* this case is for lamemelee */
-				s += "<li>" + lamemelee[Math.floor(Math.random()*(lamemelee.length - 1) + 1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-				break;
-			case (r = 5):
-				/* this case is for lameexplosives */
-				s += "<li>" + lameexplosives[Math.floor(Math.random()*(lameexplosives.length -1) +1)] + "</li>";
-				s2 += "<li>" + explosiveconditions[Math.floor(Math.random()*(meleeconditions.length - 1) + 1)] + "</li>";
-				break;
-			case (r = 6):
-				/* this case is for pistols */
-				s += "<li>" + pistols[Math.floor(Math.random()*(pistols.length -1) +1)] + "</li>";
-				s2 += "<li>" + firearmcondition[Math.floor(Math.random()*(firearmcondition.length - 1) + 1)] + "</li>";
-				break;
+		s += "<li>" + type[Math.floor(Math.random()*(type.length - 1) + 1)] + "</li>";
+		s2 += "<li>" + condition[Math.floor(Math.random()*(condition.length - 1) + 1)] + "</li>";
 		}
-
-	}
+		
+		s = s.slice(5);
+		s2 = s2.slice(5);
 		var res = [s , s2];
 		return res;
 }

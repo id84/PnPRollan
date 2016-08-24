@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>PNPRollan</title>
+		<style>
+			div.container {
+				width: 768px;
+				border: 1px solid gray;
+				font-family: 'Lato', sans-serif;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+    
+	<link rel="stylesheet" type="text/css"
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<body onload="init();">
+<div class="container">
+			<fieldset>
+				<legend>Select Dice</legend>
+					<form>
+<!-- 					<input type="radio" onclick="setdieset(this.value)" value="6">d6
+						<input type="radio" onclick="setdieset(this.value)" value="12">2d6
+						<input type="radio" onclick="setdieset(this.value)" value="20">1d20
+						<input type="radio" onclick="setdieset(this.value)" value="40">2d20
+						<input type="radio" onclick="setdieset(this.value)" value="100">d100
+						<input type="radio" onclick="setdieset(this.value)" value="200">2d100
+ -->
+						<select id="dice">
+							<option selected name="dieSet" onclick="setdieset(this.value)" value="6" >d6</option>
+							<option onclick="setdieset(this.value)" value="12" >2d6</option>
+							<option onclick="setdieset(this.value)" value="20" >d20</option>
+							<option onclick="setdieset(this.value)" value="40" >2d20</option>
+							<option onclick="setdieset(this.value)" value="100" >d100</option>
+							<option onclick="setdieset(this.value)" value="200" >2d100</option>
+						</select>
+						
+						<input type="button" value="Roll Dice!" onClick="rollDice()">
+						<p id="dieResult" style="font-size:30px"></p>
+					</form>
+			</fieldset>
+			<fieldset>
+				<legend>Generate Weapons</legend>
+					<input type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)">
+					<input type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)">
+					<input type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)">
+					<input type="button" value="Shotguns!" onClick="generatefromtype(falloutShotguns, firearmcondition)">
+					<input type="button" value="Rifles!" onClick="generatefromtype(falloutRifles, firearmcondition)">
+					<input type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)">
+					<input type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">
+					<input type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)">
+					<p id="Weapon"></p>
+					<p id="Condition"></p>
+			</fieldset>
+			<fieldset>
+				<legend>Generate Loot</legend>
+					<input type="button" value="Trash!" onClick="generateloot(falloutJunk, 6)">
+					<input type="button" value="Medicine!" onClick="generatechem(falloutMedicine, chemConditions)">  
+					<input type="button" value="Drugs!" onClick="generatechem(falloutDrugs, chemConditions)">
+					<input type="button" value="Alcohol!" onClick="generatechem(falloutAlcohol, chemConditions)">
+					<input type="button" value="Tools!" onClick="generatechem(falloutTools, toolConditions)">
+					<input type="button" value="Reading!" onClick="generatechem(falloutReading, readingConditions)">
+					<p id="Loot"></p>
+					<p id="Condition2"></p>
+			</fieldset>
+			
+			
+</div>
+<script src="fallout_wl.js"></script>
+<script src="fallout_cl.js"></script>
+<script src="fallout_tl.js"></script>
+<script src="fallout_jl.js"></script>
+<script src="itemlists.js"></script>
+<script src="PnPRollan.js"></script>
+		</body>
+</html>
