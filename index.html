@@ -11,6 +11,14 @@
 				font-family: 'Lato', sans-serif;
 				font-size: 18px;
 			}
+			legend.label {
+				font-size: 12px;
+			}
+			mark {
+				background-color: #82FFA6;
+				color: black;
+			}
+			
 		</style>
 	</head>
     
@@ -20,7 +28,7 @@
 <body onload="init();">
 <div class="container">
 			<fieldset>
-				<legend>Select Dice</legend>
+				<legend class="label">Select Dice</legend>
 					<form>
 <!-- 					<input type="radio" onclick="setdieset(this.value)" value="6">d6
 						<input type="radio" onclick="setdieset(this.value)" value="12">2d6
@@ -39,11 +47,10 @@
 						</select>
 						
 						<input type="button" value="Roll Dice!" onClick="rollDice()">
-						<p id="dieResult" style="font-size:30px"></p>
 					</form>
 			</fieldset>
 			<fieldset>
-				<legend>Generate Weapons</legend>
+				<legend class="label">Generate Weapons</legend>
 					<input type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)">
 					<input type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)">
 					<input type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)">
@@ -52,28 +59,43 @@
 					<input type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)">
 					<input type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">
 					<input type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)">
-					<p id="Weapon"></p>
-					<p id="Condition"></p>
 			</fieldset>
 			<fieldset>
-				<legend>Generate Loot</legend>
-					<input type="button" value="Trash!" onClick="generateloot(falloutJunk, 6)">
-					<input type="button" value="Medicine!" onClick="generatechem(falloutMedicine, chemConditions)">  
-					<input type="button" value="Drugs!" onClick="generatechem(falloutDrugs, chemConditions)">
-					<input type="button" value="Alcohol!" onClick="generatechem(falloutAlcohol, chemConditions)">
-					<input type="button" value="Tools!" onClick="generatechem(falloutTools, toolConditions)">
-					<input type="button" value="Reading!" onClick="generatechem(falloutReading, readingConditions)">
-					<p id="Loot"></p>
-					<p id="Condition2"></p>
+				<legend class="label">Generate Loot</legend>
+					<input type="button" value="Trash!" onClick="generatefromtype(falloutJunk, falloutJunk)">
+					<input type="button" value="Munition!" onClick="generatefromtype(falloutMunitions, munitionKind)">					
+					<input type="button" value="Medicine!" onClick="generatefromtype(falloutMedicine, chemConditions)">
+					<input type="button" value="Drugs!" onClick="generatefromtype(falloutDrugs, chemConditions)">
+					<input type="button" value="Alcohol!" onClick="generatefromtype(falloutAlcohol, chemConditions)">
+					<input type="button" value="Tools!" onClick="generatefromtype(falloutTools, toolConditions)">
+					<input type="button" value="Reading!" onClick="generatefromtype(falloutReading, readingConditions)">
+					<input type="button" value="Rare Weapon!" onClick="generatefromtype(falloutUniqueweapon, -1)">
 			</fieldset>
-			
-			
+			<fieldset>
+				<legend class="label">Generate Character</legend>
+					<input type="button" value="Human(F)!" onClick="generateNPC('townfolkf')">
+					<input type="button" value="Human(M)!" onClick="generateNPC('townfolkm')">
+					<input type="button" value="Ghoul(F)!" onClick="generateNPC('ghoulf')">
+					<input type="button" value="Ghoul(M)!" onClick="generateNPC('ghoulm')">
+					<input type="button" value="Names!" onClick="generatefromtype(namesFemale, namesMale)">
+					<input type="button" value="Disease/Disability!" onClick="generatefromtype(falloutDisease, falloutDisability)">
+					<input type="button" value="Occupation/Quirk!" onClick="generatefromtype(falloutPerson, npcQuirks)">
+			</fieldset>
+			<fieldset>
+				<legend class="label">Result</legend>
+					<p id="dieResult" style="text-align:center"</p>
+					<p id="Result" style="text-align:center"></p>
+					<p id="Condition" style="text-align:center"></p>
+			</fieldset>
 </div>
 <script src="fallout_wl.js"></script>
 <script src="fallout_cl.js"></script>
 <script src="fallout_tl.js"></script>
 <script src="fallout_jl.js"></script>
-<script src="itemlists.js"></script>
+<script src="fallout_dl.js"></script>
+<script src="fallout_el.js"></script>
+<script src="npcQuirks.js"></script>
+<script src="names.js"></script>
 <script src="PnPRollan.js"></script>
 		</body>
 </html>

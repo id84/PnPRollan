@@ -1,3 +1,6 @@
+var falloutPipAdds = ["",
+""];
+
 var falloutTools =["Hair Pin",
 "Electronic Lockpick I",
 "Electronic Lockpick II",
@@ -78,7 +81,7 @@ var readingConditions =["In Mexican Language",
 "Well Worn - With Marked Pages",
 "Pristine - Reprint",
 "Pristine - Annoted Reprint",
-"Well Preserved"]
+"Well Preserved"];
 
 
 var toolConditions =["Missing Items",

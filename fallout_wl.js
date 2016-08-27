@@ -2,29 +2,36 @@
 //my house rules doesn't account for Energy Weapons for their usage, only to maintain them so they are all mixed in
 /* Handmade Guns */
 var handmade = ["Pipe Pistol - Break Action 9mm",
-
 "Derringer - .32",
 "Pipe Rifle - Break Action 9mm",
 "Pipe Rifle - Break Action 10mm",
 "Pipe Rifle - Bolt Action 10mm",
 "Shotgonne - Breach Load .44",
 "Lever Action - .50 AE",
-"Hunting rifle - .50 AE"];
+"Hunting Rifle - .50 AE",
+"Kalthoff - Lorenzo Repeating Flintlock Pistol- Powder & Ball",
+"Kalthoff - Lorenzo Repeating Flintlock Rifle - Powder & Ball"];
 
-//"That Gun - 5.56mm",
-//"Spasm NeuroDisruptor - SEC"
-//Ripper
-//Cattle Prod 
-//Power Fist
-//Super Sledge
-//Thermic Lance
-//Arc Welder
-//H&H Tools Nail Gun
-//ARTEMIS Rail Gun - 2 to 15mm EC
-//APOLLO Laser Gun
-//Cryo Grenade & Mine
-//Surgical Mask
-//Heckler
+var falloutUniqueweapon = ["That Gun - 5.56mm",
+"Spasm NeuroDisruptor - SEC/MFC",
+"Ripper - SEC",
+"Super Cattle Prod - SEC",
+"Power Fist - SEC",
+"Super Sledge - SEC",
+"Turbo super sledge - Fuel",
+"Plasma Saw - MFC",
+"Tesla cleaver - SEC",
+"Thermic Lance - MFC",
+"Arc Welder - MFC",
+"H&H Tools Nail Gun - 9 inch nails",
+"ARTEMIS Rail Gun - 2mm/15mm EC",
+"APOLLO Laser Gun - SEC",
+"Cryogenic Fluid Recipe",
+"Heckler - 40mm/20mm",
+"PPK 12 Gauss - SEC & 2mm EC",
+"Wattz 2500 Laser Rifle - MFC",
+"Gyrojet Rifle - Handmade",
+"Gyrojet Pistol - Handmade"];
 
 /* Pre-historic crap */
 var falloutPistols = ["Browning Hi-Power - 9mm",
@@ -47,7 +54,8 @@ var falloutPistols = ["Browning Hi-Power - 9mm",
 "Van Graff Wattz 500 Laser Pistol - SEC",
 "Glock 86 Plasma Defender - SEC",
 "YK32 Pulse Pistol - SEC",
-"PPK 12 Gauss - SEC & 2mm EC"];
+"C4 Block",
+"C70 Block"];
 
 
 var falloutSMGs = ["MP5 Navy - 9mm",
@@ -87,7 +95,6 @@ var falloutRifles = ["Varmint rifle - 5.56mm",
 "M72 Gauss - SEC & 2mm EC",
 "YCS/186 - SEC & 2mm EC",
 "Wattz 2000 Laser Rifle - MFC",
-"Wattz 2500 Laser Rifle - MFC",
 "Van Graff Wattz 2000 Lazer Rifle - SEC",
 "AER 9 Laser Rifle - MFC",
 "AER 12 Laser Rifle - MFC",
@@ -209,8 +216,7 @@ var falloutExplosives = ["Firecrackers",
 "Pulse Grenade",
 "Potato Masher",
 "Satchel Charge",
-"C4 block",
-"C70 block",
+
 "Powder Charge",
 "Bottlecap Mine",
 "Fragmentation Mine",
@@ -313,3 +319,12 @@ var falloutMunitions = [".32",
 "20mm Frag Grenade",
 "40mm Frag Grenade",
 ".50"];
+
+var munitionKind = ["Flechette",
+"Full Metal Jacket",
+"Hollow Point",
+"Duplex Cartridge",
+"Plastic Tip",
+"Ballpoint",
+"Crooked",
+"Cracked Case"];
