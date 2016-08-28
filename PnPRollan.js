@@ -52,12 +52,12 @@ function printresult(s1, el1, s2, el2, clear) {
 	if (clear) {
 		clearelements();
 	}
-	var tableStart = "<table style=\"width:100%\">";
+	var tableStart = "<div class=\"tablecontainer\"><table>";
 	if (s2 != 0){
-		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td>" + "<td><ol type=\"1\">" + s2 + "</ol></td></tr></table>";
+		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td>" + "<td><ol type=\"1\">" + s2 + "</ol></td></tr></table></div>";
 	}
 	else{
-		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td></tr></table>";
+		var table1st = "<tr><td><ol type=\"1\">" + s1 + "</ol></td></tr></table></div>";
 	}
 	//var table2nd = "<tr><td><ol type=\"1\">" + s3 + "</ol></td>" + "<td><ol type=\"1\">" + s4 + "</ol></td></tr></table>";
 	
@@ -118,17 +118,17 @@ function generatewithcondition(type, condition, forcenum){
 	
 	for (i = 0; i < n; i++) {
 		if (i == curdie1 - 1){
-			s += "<li><mark>" + type[Math.floor(Math.random()*(type.length - 1) + 1)] + "</mark></li>";
+			s += "<li><mark>" + type[Math.floor(Math.random()*(type.length))] + "</mark></li>";
 		}
 		else {
-			s += "<li>" + type[Math.floor(Math.random()*(type.length - 1) + 1)] + "</li>";			
+			s += "<li>" + type[Math.floor(Math.random()*(type.length))] + "</li>";			
 		}
 		
 		if (i == curdie2 - 1){
-			s2 += "<li><mark>" + condition[Math.floor(Math.random()*(condition.length - 1) + 1)] + "</mark></li>";
+			s2 += "<li><mark>" + condition[Math.floor(Math.random()*(condition.length))] + "</mark></li>";
 		}
 		else{
-			s2 += "<li>" + condition[Math.floor(Math.random()*(condition.length - 1) + 1)] + "</li>";
+			s2 += "<li>" + condition[Math.floor(Math.random()*(condition.length))] + "</li>";
 		}
 	}
 		
@@ -142,7 +142,6 @@ function getfullname(gender) {
 	//true female - false male
 	var hasMidName = false;
 	var mc = Math.floor(Math.random()*100);
-	var surnamepool = namesFemale.concat(namesMale);
 	var firstName = "error";
 	var midName = "";
 	var surname = "error";
@@ -156,11 +155,11 @@ function getfullname(gender) {
 		namepool = namesFemale;
 	}
 	
-	firstName = namepool[Math.floor(Math.random()*(namepool.length - 1) + 1)];
+	firstName = namepool[Math.floor(Math.random()*(namepool.length))];
 	if (hasMidName) {
-		midName = namepool[Math.floor(Math.random()*(namepool.length - 1) + 1)];
+		midName = namepool[Math.floor(Math.random()*(namepool.length))];
 	}
-	surname = surnamepool[Math.floor(Math.random()*(surnamepool.length - 1) + 1)];
+	surname = surnames[Math.floor(Math.random()*(surnames.length))];
 	var fullname = firstName + " " + midName + " " + surname;
 	return fullname;
 }
@@ -176,18 +175,18 @@ function townfolkgen(gender){
 	var d3 = Math.floor(Math.random()*100);
 	var name = getfullname(gender);
 	
-	occupation = falloutPerson[Math.floor(Math.random()*(falloutPerson.length - 1) + 1)];
+	occupation = falloutPerson[Math.floor(Math.random()*(falloutPerson.length))];
 	string = name + " is a " + humanage + " years old " + occupation + ". ";
 	if (d1 > 65){
-		disease = falloutDisease[Math.floor(Math.random()*(falloutDisease.length - 1) + 1)];	
+		disease = falloutDisease[Math.floor(Math.random()*(falloutDisease.length))];	
 		string += " Appears to have " + disease + ". ";
 	}
 	if (d2 > 50){
-		quirk = npcQuirks[Math.floor(Math.random()*(npcQuirks.length - 1) + 1)];	
+		quirk = npcQuirks[Math.floor(Math.random()*(npcQuirks.length - 1))];
 		string += quirk + ". ";
 	}
 	if (d3 > 70){
-		disability = falloutDisability[Math.floor(Math.random()*(falloutDisability.length - 1) + 1)];
+		disability = falloutDisability[Math.floor(Math.random()*(falloutDisability.length))];
 		string += " Seems to be suffering " + disability + ".";
 	}
 	document.getElementById("Result").innerHTML = string;	
@@ -202,10 +201,10 @@ function ghoulgen(gender){
 	var string = "";
 	var d1 = Math.floor(Math.random()*100);
 	var name = getfullname(gender);
-	occupation = falloutPerson[Math.floor(Math.random()*(falloutPerson.length - 1) + 1)];
+	occupation = falloutPerson[Math.floor(Math.random()*(falloutPerson.length))];
 	string = name + " is a " + ghoulage + " years old " + occupation + ". ";
 	if (d1 > 50){
-		disability = falloutDisability[Math.floor(Math.random()*(falloutDisability.length - 1) + 1)];
+		disability = falloutDisability[Math.floor(Math.random()*(falloutDisability.length))];
 		string += " Seems to be suffering " + disability + ".";
 	}
 	document.getElementById("Result").innerHTML = string;	

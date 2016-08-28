@@ -31,7 +31,8 @@ var falloutUniqueweapon = ["That Gun - 5.56mm",
 "PPK 12 Gauss - SEC & 2mm EC",
 "Wattz 2500 Laser Rifle - MFC",
 "Gyrojet Rifle - Handmade",
-"Gyrojet Pistol - Handmade"];
+"Gyrojet Pistol - Handmade",
+"Sprtel-Wood 9700 - MFC"];
 
 /* Pre-historic crap */
 var falloutPistols = ["Browning Hi-Power - 9mm",
@@ -141,7 +142,7 @@ var falloutBigguns =["Light Support Gun - .223",
 "Shoulder Mounted MG - 10mm",
 "Gun Runners Winchester P94 - MFC",
 "Winchester P94 - MFC",
-"Sprtel-Wood 9700 - MFC",
+
 "Missile Laucher - Missile",
 "Grenade Machinegun - 25mm"];
 

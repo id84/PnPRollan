@@ -1,35 +1,89 @@
-<!DOCTYPE html>
+<!DOCTYPE html>	
 <html>
 
 	<head>
+		    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+
 		<meta charset="utf-8">
 		<title>PNPRollan</title>
 		<style>
-			div.container {
-				width: 768px;
-				border: 1px solid gray;
-				font-family: 'Lato', sans-serif;
+			.textbox {
+				background: #3498db;
+				border-radius: 16px;
+				box-shadow: 1px 1px 3px #666666;
 				font-size: 18px;
+				padding: 10px 20px 10px 20px;
+				border: solid #1f628d 2px;
+				background-color: #FFFFFF;
+				outline: none;
 			}
-			legend.label {
-				font-size: 12px;
+			.container {
+				width: 100%;
+				font-family: 'Lato', sans-serif;
+				font-size: 22px;
+			}
+			.dieres
+			{
+				font-size: 22px;
+			}
+			.tabletype {
+				width: 100%;
+			}
+			.tablecontainer {
+				overflow-x:auto;
 			}
 			mark {
-				background-color: #82FFA6;
-				color: black;
+				background-color: #63b1e9;
+				color: white;
+			}
+			fieldset {
+				border: none;
+			}
+			.button {
+				background: #3498db;
+				border-radius: 16px;
+				text-shadow: 2px 2px 3px #666666;
+				box-shadow: 1px 1px 3px #666666;
+				color: #ffffff;
+				font-size: 18px;
+				padding: 8px 16px 8px 16px;
+				border: solid #1f628d 2px;
+				margin: 5px;
+			}
+			.buttonred {
+				background: #ff1a1a;
+				border-radius: 16px;
+				text-shadow: 2px 2px 3px #666666;
+				box-shadow: 1px 1px 3px #666666;
+				color: #ffffff;
+				font-size: 18px;
+				padding: 8px 16px 8px 16px;
+				border: solid #990000 2px;
+				margin: 5px;
+			}
+			.buttongreen {
+				background: #33ff77;
+				border-radius: 16px;
+				text-shadow: 2px 2px 3px #666666;
+				box-shadow: 1px 1px 3px #666666;
+				color: #ffffff;
+				font-size: 18px;
+				padding: 8px 16px 8px 16px;
+				border: solid #009933 2px;
+				margin: 5px;
 			}
 			
+			
+			
+			#form {
+				position: relative;
+			}
 		</style>
 	</head>
-    
-	<link rel="stylesheet" type="text/css"
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
-<body onload="init();">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body onload="init();" class="container">
 <div class="container">
 			<fieldset>
-				<legend class="label">Select Dice</legend>
-					<form>
 <!-- 					<input type="radio" onclick="setdieset(this.value)" value="6">d6
 						<input type="radio" onclick="setdieset(this.value)" value="12">2d6
 						<input type="radio" onclick="setdieset(this.value)" value="20">1d20
@@ -37,53 +91,52 @@
 						<input type="radio" onclick="setdieset(this.value)" value="100">d100
 						<input type="radio" onclick="setdieset(this.value)" value="200">2d100
  -->
-						<select id="dice">
-							<option selected name="dieSet" onclick="setdieset(this.value)" value="6" >d6</option>
-							<option onclick="setdieset(this.value)" value="12" >2d6</option>
-							<option onclick="setdieset(this.value)" value="20" >d20</option>
-							<option onclick="setdieset(this.value)" value="40" >2d20</option>
-							<option onclick="setdieset(this.value)" value="100" >d100</option>
-							<option onclick="setdieset(this.value)" value="200" >2d100</option>
+						<select id="dice" class="textbox" onchange="setdieset(this.value)">
+							<option selected name="dieSet" value="6" >d6</option> 
+							<option value="12" >2d6</option>
+							<option value="20" >d20</option>
+							<option value="40" >2d20</option>
+							<option value="100" >d100</option>
+							<option value="200" >2d100</option>
 						</select>
-						
-						<input type="button" value="Roll Dice!" onClick="rollDice()">
-					</form>
+						<input type="button" class="button" value="Roll!" onClick="rollDice()">
 			</fieldset>
 			<fieldset>
-				<legend class="label">Generate Weapons</legend>
-					<input type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)">
-					<input type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)">
-					<input type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)">
-					<input type="button" value="Shotguns!" onClick="generatefromtype(falloutShotguns, firearmcondition)">
-					<input type="button" value="Rifles!" onClick="generatefromtype(falloutRifles, firearmcondition)">
-					<input type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)">
-					<input type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">
-					<input type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)">
+					<input class="buttonred" type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)">
+					<input class="buttonred" type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)">
+					<input class="buttonred" type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)">
+					<input class="buttonred" type="button" value="Shotguns!" onClick="generatefromtype(falloutShotguns, firearmcondition)">
+					<input class="buttonred" type="button" value="Rifles!" onClick="generatefromtype(falloutRifles, firearmcondition)">
+					<input class="buttonred" type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)">
+					<input class="buttonred" type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">
+					<input class="buttonred" type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)">
+					<input class="buttonred" type="button" value="Rare Weapon!" onClick="generatefromtype(falloutUniqueweapon, -1)">
+					<input class="button" type="button" value="Trash!" onClick="generatefromtype(falloutJunk, falloutJunk)">
+					<input class="button" type="button" value="Munition!" onClick="generatefromtype(falloutMunitions, munitionKind)">					
+					<input class="button" type="button" value="Medicine!" onClick="generatefromtype(falloutMedicine, chemConditions)">
+					<input class="button" type="button" value="Drugs!" onClick="generatefromtype(falloutDrugs, chemConditions)">
+					<input class="button" type="button" value="Alcohol!" onClick="generatefromtype(falloutAlcohol, chemConditions)">
+					<input class="button" type="button" value="Tools!" onClick="generatefromtype(falloutTools, toolConditions)">
+					<input class="button" type="button" value="Reading!" onClick="generatefromtype(falloutReading, readingConditions)">
+					<input class="button" type="button" value="Names!" onClick="generatefromtype(namesFemale, namesMale)">
+					<input class="buttongreen" type="button" value="Disease!" onClick="generatefromtype(falloutDisease, -1)">
+					<input class="buttongreen" type="button" value="Disability!" onClick="generatefromtype(falloutDisease, -1)">
+					<input class="buttongreen" type="button" value="Occupation!" onClick="generatefromtype(falloutPerson, -1)">
+					<input class="buttongreen" type="button" value="Quirk!" onClick="generatefromtype(npcQuirks,-1)">
+					
+			</fieldset>
+			
+			
+			
+
+			<fieldset>
+					<input class="button" type="button" value="Human(F)!" onClick="generateNPC('townfolkf')">
+					<input class="button" type="button" value="Human(M)!" onClick="generateNPC('townfolkm')">
+					<input class="button" type="button" value="Ghoul(F)!" onClick="generateNPC('ghoulf')">
+					<input class="button" type="button" value="Ghoul(M)!" onClick="generateNPC('ghoulm')">
 			</fieldset>
 			<fieldset>
-				<legend class="label">Generate Loot</legend>
-					<input type="button" value="Trash!" onClick="generatefromtype(falloutJunk, falloutJunk)">
-					<input type="button" value="Munition!" onClick="generatefromtype(falloutMunitions, munitionKind)">					
-					<input type="button" value="Medicine!" onClick="generatefromtype(falloutMedicine, chemConditions)">
-					<input type="button" value="Drugs!" onClick="generatefromtype(falloutDrugs, chemConditions)">
-					<input type="button" value="Alcohol!" onClick="generatefromtype(falloutAlcohol, chemConditions)">
-					<input type="button" value="Tools!" onClick="generatefromtype(falloutTools, toolConditions)">
-					<input type="button" value="Reading!" onClick="generatefromtype(falloutReading, readingConditions)">
-					<input type="button" value="Rare Weapon!" onClick="generatefromtype(falloutUniqueweapon, -1)">
-			</fieldset>
-			<fieldset>
-				<legend class="label">Generate Character</legend>
-					<input type="button" value="Human(F)!" onClick="generateNPC('townfolkf')">
-					<input type="button" value="Human(M)!" onClick="generateNPC('townfolkm')">
-					<input type="button" value="Ghoul(F)!" onClick="generateNPC('ghoulf')">
-					<input type="button" value="Ghoul(M)!" onClick="generateNPC('ghoulm')">
-					<input type="button" value="Names!" onClick="generatefromtype(namesFemale, namesMale)">
-					<input type="button" value="Disease/Disability!" onClick="generatefromtype(falloutDisease, falloutDisability)">
-					<input type="button" value="Occupation/Quirk!" onClick="generatefromtype(falloutPerson, npcQuirks)">
-			</fieldset>
-			<fieldset>
-				<legend class="label">Result</legend>
-					<p id="dieResult" style="text-align:center"</p>
+					<p class = "dieres" id="dieResult" style="text-align:center"></p>
 					<p id="Result" style="text-align:center"></p>
 					<p id="Condition" style="text-align:center"></p>
 			</fieldset>
