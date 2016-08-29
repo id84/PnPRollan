@@ -32,7 +32,9 @@ var falloutUniqueweapon = ["That Gun - 5.56mm",
 "Wattz 2500 Laser Rifle - MFC",
 "Gyrojet Rifle - Handmade",
 "Gyrojet Pistol - Handmade",
-"Sprtel-Wood 9700 - MFC"];
+"Sprtel-Wood 9700 - MFC",
+"SRM 1216 Revolving Shotgun - 12g",
+"DP-12 Double Barell&Tube - 12g"];
 
 /* Pre-historic crap */
 var falloutPistols = ["Browning Hi-Power - 9mm",
@@ -114,6 +116,7 @@ var falloutRifles = ["Varmint rifle - 5.56mm",
 "Lever Action - .357"];
 
 var falloutShotguns =["Double Barrel Shotgun - 20g",
+"Double Barrel Shotgun - 12g",
 "Over & Under Shotgun - 12g",
 "Pump Action Shotgun - 12g",
 "Gun Runner Pump Action Shotgun - 20g",
@@ -123,7 +126,8 @@ var falloutShotguns =["Double Barrel Shotgun - 20g",
 "City-Killer Combat Shotgun - 12g",
 "Single Barrel Shotgun - 12g",
 "Single Barrel Shotgun - 20g",
-"Riot Shotgun - 12g"];
+"Riot Shotgun - 12g",
+"UT-12 Shotgun - 12g"];
 
 
 var falloutBigguns =["Light Support Gun - .223",

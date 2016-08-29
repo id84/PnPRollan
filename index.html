@@ -1,154 +1,90 @@
 <!DOCTYPE html>	
 <html>
-
 	<head>
-		    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
-
-		<meta charset="utf-8">
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>PNPRollan</title>
-		<style>
-			.textbox {
-				background: #3498db;
-				border-radius: 16px;
-				box-shadow: 1px 1px 3px #666666;
-				font-size: 18px;
-				padding: 10px 20px 10px 20px;
-				border: solid #1f628d 2px;
-				background-color: #FFFFFF;
-				outline: none;
-			}
-			.container {
-				width: 100%;
-				font-family: 'Lato', sans-serif;
-				font-size: 22px;
-			}
-			.dieres
-			{
-				font-size: 22px;
-			}
-			.tabletype {
-				width: 100%;
-			}
-			.tablecontainer {
-				overflow-x:auto;
-			}
-			mark {
-				background-color: #63b1e9;
-				color: white;
-			}
-			fieldset {
-				border: none;
-			}
-			.button {
-				background: #3498db;
-				border-radius: 16px;
-				text-shadow: 2px 2px 3px #666666;
-				box-shadow: 1px 1px 3px #666666;
-				color: #ffffff;
-				font-size: 18px;
-				padding: 8px 16px 8px 16px;
-				border: solid #1f628d 2px;
-				margin: 5px;
-			}
-			.buttonred {
-				background: #ff1a1a;
-				border-radius: 16px;
-				text-shadow: 2px 2px 3px #666666;
-				box-shadow: 1px 1px 3px #666666;
-				color: #ffffff;
-				font-size: 18px;
-				padding: 8px 16px 8px 16px;
-				border: solid #990000 2px;
-				margin: 5px;
-			}
-			.buttongreen {
-				background: #33ff77;
-				border-radius: 16px;
-				text-shadow: 2px 2px 3px #666666;
-				box-shadow: 1px 1px 3px #666666;
-				color: #ffffff;
-				font-size: 18px;
-				padding: 8px 16px 8px 16px;
-				border: solid #009933 2px;
-				margin: 5px;
-			}
-			
-			
-			
-			#form {
-				position: relative;
-			}
-		</style>
-	</head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body onload="init();" class="container">
-<div class="container">
-			<fieldset>
-<!-- 					<input type="radio" onclick="setdieset(this.value)" value="6">d6
-						<input type="radio" onclick="setdieset(this.value)" value="12">2d6
-						<input type="radio" onclick="setdieset(this.value)" value="20">1d20
-						<input type="radio" onclick="setdieset(this.value)" value="40">2d20
-						<input type="radio" onclick="setdieset(this.value)" value="100">d100
-						<input type="radio" onclick="setdieset(this.value)" value="200">2d100
- -->
-						<select id="dice" class="textbox" onchange="setdieset(this.value)">
-							<option selected name="dieSet" value="6" >d6</option> 
-							<option value="12" >2d6</option>
-							<option value="20" >d20</option>
-							<option value="40" >2d20</option>
-							<option value="100" >d100</option>
-							<option value="200" >2d100</option>
-						</select>
-						<input type="button" class="button" value="Roll!" onClick="rollDice()">
-			</fieldset>
-			<fieldset>
-					<input class="buttonred" type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)">
-					<input class="buttonred" type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)">
-					<input class="buttonred" type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)">
-					<input class="buttonred" type="button" value="Shotguns!" onClick="generatefromtype(falloutShotguns, firearmcondition)">
-					<input class="buttonred" type="button" value="Rifles!" onClick="generatefromtype(falloutRifles, firearmcondition)">
-					<input class="buttonred" type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)">
-					<input class="buttonred" type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">
-					<input class="buttonred" type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)">
-					<input class="buttonred" type="button" value="Rare Weapon!" onClick="generatefromtype(falloutUniqueweapon, -1)">
-					<input class="button" type="button" value="Trash!" onClick="generatefromtype(falloutJunk, falloutJunk)">
-					<input class="button" type="button" value="Munition!" onClick="generatefromtype(falloutMunitions, munitionKind)">					
-					<input class="button" type="button" value="Medicine!" onClick="generatefromtype(falloutMedicine, chemConditions)">
-					<input class="button" type="button" value="Drugs!" onClick="generatefromtype(falloutDrugs, chemConditions)">
-					<input class="button" type="button" value="Alcohol!" onClick="generatefromtype(falloutAlcohol, chemConditions)">
-					<input class="button" type="button" value="Tools!" onClick="generatefromtype(falloutTools, toolConditions)">
-					<input class="button" type="button" value="Reading!" onClick="generatefromtype(falloutReading, readingConditions)">
-					<input class="button" type="button" value="Names!" onClick="generatefromtype(namesFemale, namesMale)">
-					<input class="buttongreen" type="button" value="Disease!" onClick="generatefromtype(falloutDisease, -1)">
-					<input class="buttongreen" type="button" value="Disability!" onClick="generatefromtype(falloutDisease, -1)">
-					<input class="buttongreen" type="button" value="Occupation!" onClick="generatefromtype(falloutPerson, -1)">
-					<input class="buttongreen" type="button" value="Quirk!" onClick="generatefromtype(npcQuirks,-1)">
-					
-			</fieldset>
-			
-			
-			
+		<link rel="stylesheet" type="text/css" href="main.css">
 
-			<fieldset>
-					<input class="button" type="button" value="Human(F)!" onClick="generateNPC('townfolkf')">
-					<input class="button" type="button" value="Human(M)!" onClick="generateNPC('townfolkm')">
-					<input class="button" type="button" value="Ghoul(F)!" onClick="generateNPC('ghoulf')">
-					<input class="button" type="button" value="Ghoul(M)!" onClick="generateNPC('ghoulm')">
-			</fieldset>
-			<fieldset>
-					<p class = "dieres" id="dieResult" style="text-align:center"></p>
-					<p id="Result" style="text-align:center"></p>
-					<p id="Condition" style="text-align:center"></p>
-			</fieldset>
-</div>
-<script src="fallout_wl.js"></script>
-<script src="fallout_cl.js"></script>
-<script src="fallout_tl.js"></script>
-<script src="fallout_jl.js"></script>
-<script src="fallout_dl.js"></script>
-<script src="fallout_el.js"></script>
-<script src="npcQuirks.js"></script>
-<script src="names.js"></script>
-<script src="PnPRollan.js"></script>
-		</body>
+	</head>
+	
+	<body>
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="buttonred" type="button" value="Guns!" onClick="openCat('guns')"></li>
+					<li><input class="button" type="button" value="Loot!" onClick="openCat('loot')"></li>
+					<li><input class="buttongreen" type="button" value="Status!" onClick="openCat('ailment')"></li>
+					<li><input class="buttonred" type="button" value="NPC!" onClick="openCat('npc')"></li>
+					<li><input class="button" type="button" value="Settlement!" onClick="openCat('building')"></li>
+				</ul>
+				
+	<div class="flex-container">
+				<div id="guns" class="w3-container category">
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="buttonred" type="button" value="Homemade!" onClick="generatefromtype(handmade, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="Pistols!" onClick="generatefromtype(falloutPistols, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="SMG!" onClick="generatefromtype(falloutSMGs, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="Shotguns!" onClick="generatefromtype(falloutShotguns, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="Rifles!" onClick="generatefromtype(falloutRifles, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="Melee!" onClick="generatefromtype(falloutMelee, meleeconditions)"></li>
+					<li><input class="buttonred" type="button" value="Explosive!" onClick="generatefromtype(falloutExplosives, explosiveconditions)">    </li>
+					<li><input class="buttonred" type="button" value="Huge Guns!" onClick="generatefromtype(falloutBigguns, firearmcondition)"></li>
+					<li><input class="buttonred" type="button" value="Rare Weapon!" onClick="generatefromtype(falloutUniqueweapon, -1)"></li>
+				</ul>
+				</div>
+		
+		
+				<div id="loot" class="w3-container category">
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="button" type="button" value="Trash!" onClick="generatefromtype(falloutJunk, -1)"></li>
+					<li><input class="button" type="button" value="Munition!" onClick="generatefromtype(falloutMunitions, munitionKind)"></li>
+					<li><input class="button" type="button" value="Medicine!" onClick="generatefromtype(falloutMedicine, chemConditions)"></li>
+					<li><input class="button" type="button" value="Drugs!" onClick="generatefromtype(falloutDrugs, chemConditions)"></li>
+					<li><input class="button" type="button" value="Alcohol!" onClick="generatefromtype(falloutAlcohol, chemConditions)"></li>
+					<li><input class="button" type="button" value="Tools!" onClick="generatefromtype(falloutTools, toolConditions)"></li>
+					<li><input class="button" type="button" value="Reading!" onClick="generatefromtype(falloutReading, readingConditions)"></li>
+				</ul>
+				</div>
+
+				<div id="ailment" class="w3-container category">
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="buttongreen" type="button" value="Disease!" onClick="generatefromtype(falloutDisease, -1)"></li>
+					<li><input class="buttongreen" type="button" value="Disability!" onClick="generatefromtype(falloutDisease, -1)"></li>
+					<li><input class="buttongreen" type="button" value="Occupation!" onClick="generatefromtype(falloutPerson, -1)"></li>
+					<li><input class="buttongreen" type="button" value="Quirk!" onClick="generatefromtype(npcQuirks,-1)"></li>
+				</div>
+				</ul>
+
+				<div id="npc" class="w3-container category">
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="buttonred" type="button" value="Names!" onClick="generatefromtype(namesFemale, namesMale)"></li>
+					<li><input class="buttonred" type="button" value="Human(F)!" onClick="npcgen('false', 'human', 'random')"></li>
+					<li><input class="buttonred" type="button" value="Human(M)!" onClick="npcgen('true', 'human', 'random')"></li>
+					<li><input class="buttonred" type="button" value="Ghoul(F)!" onClick="npcgen('false', 'ghoul', 'random')"></li>
+					<li><input class="buttonred" type="button" value="Ghoul(M)!" onClick="npcgen('true', 'ghoul', 'random')"></li>
+				</ul>
+				</div>
+
+				<div id="building" class="w3-container category">
+				<ul class="w3-navbar" style="list-style-type:none">
+					<li><input class="button" type="button" value="Camp!" onClick="generatetown(townTinykind)"></li>
+				</ul>
+				</div>
+				
+			<article class="article">
+				<p class = "dieres" id="dieResult"></p>
+				<p id="Result" style="text-align:justify"></p>
+				<p id="Condition" style="text-align:justify"></p>
+			</article>
+		</div>
+	
+		<script src="fallout_wl.js"></script>
+		<script src="fallout_cl.js"></script>
+		<script src="fallout_tl.js"></script>
+		<script src="fallout_jl.js"></script>
+		<script src="fallout_dl.js"></script>
+		<script src="fallout_el.js"></script>
+		<script src="fallout_bl.js"></script>
+		<script src="npcQuirks.js"></script>
+		<script src="names.js"></script>
+		<script src="PnPRollan.js"></script>
+	</body>
 </html>
